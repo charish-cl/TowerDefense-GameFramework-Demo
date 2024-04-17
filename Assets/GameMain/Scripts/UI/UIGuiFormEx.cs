@@ -12,7 +12,7 @@ namespace Flower
     {
         private EventSubscriber eventSubscriber;
         private EntityLoader entityLoader;
-        private ItemLoader itemLoader;
+        private ItemLoader itemLoader;  
 
         protected override void OnClose(bool isShutdown, object userData)
         {
