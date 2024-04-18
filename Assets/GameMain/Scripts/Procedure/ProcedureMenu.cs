@@ -24,24 +24,25 @@ namespace Flower
 
             this.procedureOwner = procedureOwner;
             this.changeScene = false;
+            GameEntry.UI.OpenUIForm("Assets/GameMain/Scripts/MyUI/TestUIForm.prefab", "MainMenu", this);
 
-            GameEntry.Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
-            GameEntry.Event.Subscribe(ChangeSceneEventArgs.EventId, OnChangeScene);
-            GameEntry.Event.Subscribe(LoadLevelEventArgs.EventId, OnLoadLevel);
-
-            GameEntry.UI.OpenUIForm(EnumUIForm.UIMainMenuForm);
-            GameEntry.UI.OpenDownloadForm();
-            GameEntry.Sound.PlayMusic(EnumSound.MenuBGM);
+            // GameEntry.Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
+            // GameEntry.Event.Subscribe(ChangeSceneEventArgs.EventId, OnChangeScene);
+            // GameEntry.Event.Subscribe(LoadLevelEventArgs.EventId, OnLoadLevel);
+            //
+            // GameEntry.UI.OpenUIForm(EnumUIForm.UIMainMenuForm);
+            // GameEntry.UI.OpenDownloadForm();
+            // GameEntry.Sound.PlayMusic(EnumSound.MenuBGM);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            if (changeScene)
-            {
-                ChangeState<ProcedureLoadingScene>(procedureOwner);
-            }
+            // if (changeScene)
+            // {
+            //     ChangeState<ProcedureLoadingScene>(procedureOwner);
+            // }
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)

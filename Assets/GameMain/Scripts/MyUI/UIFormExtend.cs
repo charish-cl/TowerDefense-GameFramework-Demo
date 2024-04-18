@@ -142,9 +142,10 @@ public class UIFormExtend : UIFormLogic
     {
         base.OnClose(isShutdown, userData);
         //调用动态UIItem的OnClose方法
-        foreach (var uiItemDynamic in UIItemDynamicDic.Values)
+        foreach (var uiItemDynamic in UIItemDynamicDic)
         {
-            foreach (var uiItem in uiItemDynamic)
+            boundDataLists.Remove(uiItemDynamic.Key);
+            foreach (var uiItem in uiItemDynamic.Value)
             {
                 uiItem.OnRelease();
             }
@@ -157,5 +158,10 @@ public class UIFormExtend : UIFormLogic
                 uiItem.OnClose();
             }
         }
+       
+        //清空UIItemDynamicDic绑定的数据
+        UIItemDynamicDic.Clear();
+      
+        
     }
 }
